@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/colombiadev-salary-visualization/precache-manifest.1e4d8f74de640e9b40b73dea85ed83a8.js"
+  "/colombiadev-salary-visualization/precache-manifest.5a87eca3a89b57688b31ba1a9005c959.js"
 );
 
 self.addEventListener('message', (event) => {
