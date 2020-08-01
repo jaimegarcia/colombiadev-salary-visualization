@@ -16,7 +16,7 @@ const Slider = props => {
         () => {
 
                 // New York Times
-                const width = 565;
+                const width = 320;
                 const height = 120;
                 const margin = { top: 20, right: 50, bottom: 50, left: 40 };
                 
@@ -24,7 +24,6 @@ const Slider = props => {
                     key: d,
                     value: d,
                 }));
-                console.log("data",data)
 
                 const svg = d3.select(ref.current)
                     .append('svg')

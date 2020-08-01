@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import Slider from './components/slider';
+import Container from '@material-ui/core/Container';
 import * as d3 from 'd3';
+
 import './App.css';
 import salaryFile from './data/salaries.csv'
 //let salaryData=null;
@@ -20,7 +22,6 @@ function App() {
     experience:0,
   });
   const processData=()=>{
-    console.log("salarie")
     d3.csv(salaryFile)
     .then((csv)=>{
       csv.map(d=>{
@@ -57,7 +58,6 @@ function App() {
 
         ;return d;})
       setSalaryData(csv);
-      console.log("loading",loading)
       setLoading(false);
 
     })
@@ -85,19 +85,15 @@ function App() {
   useEffect(
     () => {
       if(salaryData){
-        console.log("state",filters)
         let newSalaryData=salaryData.map(d=>{
             d["income-cop"]=d["currency"]==="pesos"?d["income-in-currency"]:d["income-in-currency"]*filters.exchangeRate;
             return d;
           })
-          console.log("state",newSalaryData)
 
         newSalaryData=newSalaryData.filter(d=>d["income-cop"]<=maxSalary)
-        console.log("salaryDataupda2",newSalaryData)
 
         newSalaryData=newSalaryData.filter(d=>(filters.experience>=d["min-experience"] && filters.experience<=d["max-experience"]));
 
-        console.log("salaryDataupda",newSalaryData)
         setSalaryMean(d3.mean(newSalaryData, d => d["income-cop"]))
         setNumberOfPeople(newSalaryData.length);
       }
@@ -110,14 +106,14 @@ function App() {
     <div className="App">
 
       {!loading && 
-      <React.Fragment>
+      <Container>
         <h4>¿Qué tasa de conversión de dólar deseas utilizar?</h4>
-      <Slider variable="exchangeRate" updateChart={updateChart} min={3000} max={4000} step={10} />
-      <h4>¿Cuántos años de experiencia tienes?</h4>
-      <Slider variable="experience" updateChart={updateChart}  min={0} max={15} step={1} />
-      <h4>Hay {numberOfPeople} personas de la comunidad con un perfil parecido al tuyo y ganan en promedio</h4>
-      el equivalente a {d3.format("($,.0f")(salaryMean)} pesos al año
-      </React.Fragment>
+        <Slider variable="exchangeRate" updateChart={updateChart} min={3000} max={4000} step={10} />
+        <h4>¿Cuántos años de experiencia tienes?</h4>
+        <Slider variable="experience" updateChart={updateChart}  min={0} max={15} step={1} />
+        <h4>Hay {numberOfPeople} personas de la comunidad con un perfil parecido al tuyo y ganan en promedio</h4>
+        el equivalente a {d3.format("($,.0f")(salaryMean)} pesos al año
+      </Container>
        
       }
     </div>
