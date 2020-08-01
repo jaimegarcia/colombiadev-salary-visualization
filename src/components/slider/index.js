@@ -20,7 +20,7 @@ const Slider = props => {
                 const height = 120;
                 const margin = { top: 20, right: 50, bottom: 50, left: 40 };
                 
-                const data = d3.range(min, max+1).map(d => ({
+                const data = d3.range(min, max+1,step).map(d => ({
                     key: d,
                     value: d,
                 }));
