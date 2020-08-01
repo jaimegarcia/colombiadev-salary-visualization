@@ -127,8 +127,8 @@ function App() {
                 <h2>
                 {numberOfPeople>0 && 
                 <React.Fragment>
-                <span> <h2><span className="salary-value">{d3.format("($,.3f")(salaryMean)}</span> Millones de pesos al año</h2></span>
-                <span> <span className="salary-value">{d3.format("($,.3f")(salaryMean/12)}</span> Millones de pesos mensuales</span>
+                <span > <h2 ><span className="salary-value">{d3.format("($,.1f")(salaryMean)} Millones de pesos al año</span></h2></span>
+                <span className="salary-value"> <span>{d3.format("($,.1f")(salaryMean/12)} Millones</span> de pesos mensuales</span>
                 </React.Fragment>
                 }
                 </h2>
