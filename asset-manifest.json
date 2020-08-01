@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/colombiadev-salary-visualization/static/css/main.cf170589.chunk.css",
-    "main.js": "/colombiadev-salary-visualization/static/js/main.40de7a52.chunk.js",
-    "main.js.map": "/colombiadev-salary-visualization/static/js/main.40de7a52.chunk.js.map",
+    "main.js": "/colombiadev-salary-visualization/static/js/main.4f27067f.chunk.js",
+    "main.js.map": "/colombiadev-salary-visualization/static/js/main.4f27067f.chunk.js.map",
     "runtime-main.js": "/colombiadev-salary-visualization/static/js/runtime-main.ae351cf8.js",
     "runtime-main.js.map": "/colombiadev-salary-visualization/static/js/runtime-main.ae351cf8.js.map",
     "static/js/2.b70dc4b2.chunk.js": "/colombiadev-salary-visualization/static/js/2.b70dc4b2.chunk.js",
     "static/js/2.b70dc4b2.chunk.js.map": "/colombiadev-salary-visualization/static/js/2.b70dc4b2.chunk.js.map",
     "index.html": "/colombiadev-salary-visualization/index.html",
-    "precache-manifest.5a87eca3a89b57688b31ba1a9005c959.js": "/colombiadev-salary-visualization/precache-manifest.5a87eca3a89b57688b31ba1a9005c959.js",
+    "precache-manifest.41d111b627ed83d545fa1f418f5ddea6.js": "/colombiadev-salary-visualization/precache-manifest.41d111b627ed83d545fa1f418f5ddea6.js",
     "service-worker.js": "/colombiadev-salary-visualization/service-worker.js",
     "static/css/main.cf170589.chunk.css.map": "/colombiadev-salary-visualization/static/css/main.cf170589.chunk.css.map",
     "static/js/2.b70dc4b2.chunk.js.LICENSE.txt": "/colombiadev-salary-visualization/static/js/2.b70dc4b2.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.ae351cf8.js",
     "static/js/2.b70dc4b2.chunk.js",
     "static/css/main.cf170589.chunk.css",
-    "static/js/main.40de7a52.chunk.js"
+    "static/js/main.4f27067f.chunk.js"
   ]
 }
