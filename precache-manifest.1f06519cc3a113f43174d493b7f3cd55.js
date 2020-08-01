@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "557539c080fa25344602b34278e1deea",
+    "revision": "eb60cad8435abe24af91417bd74f1d62",
     "url": "/colombiadev-salary-visualization/index.html"
   },
   {
