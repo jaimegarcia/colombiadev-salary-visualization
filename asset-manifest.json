@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/colombiadev-salary-visualization/static/css/main.5f361e03.chunk.css",
+    "main.js": "/colombiadev-salary-visualization/static/js/main.d465b76d.chunk.js",
+    "main.js.map": "/colombiadev-salary-visualization/static/js/main.d465b76d.chunk.js.map",
+    "runtime-main.js": "/colombiadev-salary-visualization/static/js/runtime-main.ae351cf8.js",
+    "runtime-main.js.map": "/colombiadev-salary-visualization/static/js/runtime-main.ae351cf8.js.map",
+    "static/js/2.adc64d0a.chunk.js": "/colombiadev-salary-visualization/static/js/2.adc64d0a.chunk.js",
+    "static/js/2.adc64d0a.chunk.js.map": "/colombiadev-salary-visualization/static/js/2.adc64d0a.chunk.js.map",
+    "index.html": "/colombiadev-salary-visualization/index.html",
+    "precache-manifest.2b1bd3b1577aa7f8c9fefa055aa477ec.js": "/colombiadev-salary-visualization/precache-manifest.2b1bd3b1577aa7f8c9fefa055aa477ec.js",
+    "service-worker.js": "/colombiadev-salary-visualization/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/colombiadev-salary-visualization/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.adc64d0a.chunk.js.LICENSE.txt": "/colombiadev-salary-visualization/static/js/2.adc64d0a.chunk.js.LICENSE.txt",
+    "static/media/salaries.csv": "/colombiadev-salary-visualization/static/media/salaries.b3e58a6f.csv"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ae351cf8.js",
+    "static/js/2.adc64d0a.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.d465b76d.chunk.js"
+  ]
+}
