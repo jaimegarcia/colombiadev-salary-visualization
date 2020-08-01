@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "445f1b643916e68c92bdae584340ceb8",
+    "revision": "47005815cf4efbe1c931594615999d71",
     "url": "/colombiadev-salary-visualization/index.html"
   },
   {
-    "revision": "e27de840e72ebffae128",
-    "url": "/colombiadev-salary-visualization/static/css/main.85373427.chunk.css"
+    "revision": "12f84a56aa0ca71d0c44",
+    "url": "/colombiadev-salary-visualization/static/css/main.24a53cfa.chunk.css"
   },
   {
     "revision": "1aa52c0659d5b501d5e2",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/colombiadev-salary-visualization/static/js/2.b3d4a322.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e27de840e72ebffae128",
+    "revision": "12f84a56aa0ca71d0c44",
     "url": "/colombiadev-salary-visualization/static/js/main.dcd7221a.chunk.js"
   },
   {
