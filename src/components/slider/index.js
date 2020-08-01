@@ -1,15 +1,16 @@
 import React, { useState,useEffect, useRef }  from 'react';
 import * as d3 from 'd3';
 import * as d3Slider from 'd3-simple-slider';
+import './styles.css';
 
 
 
 const Slider = props => {
 
-    const {min,max,step,variable,updateChart} = props;
+    const {min,max,step,defaultValue,variable,ordinalScale,updateChart} = props;
 
     const ref = useRef(null);
-    const [selectedValue, setSelectedValue] = useState(min);
+    const [selectedValue, setSelectedValue] = useState(defaultValue);
 
 
     useEffect(
@@ -18,7 +19,7 @@ const Slider = props => {
                 // New York Times
                 const width = 320;
                 const height = 120;
-                const margin = { top: 20, right: 50, bottom: 50, left: 40 };
+                const margin = { top: 20, right: 30, bottom: 50, left: 30 };
                 
                 const data = d3.range(min, max+1,step).map(d => ({
                     key: d,
@@ -72,7 +73,7 @@ const Slider = props => {
                     .sliderBottom(xLinear)
                     .step(step)
                     .ticks(4)
-                    .default(min)
+                    .default(defaultValue)
                     .on('onchange', value => draw(value))
                 );
 
@@ -97,12 +98,12 @@ const Slider = props => {
                         .merge(bars)
                         .attr('fill', d => (d.key === selected ? '#bad80a' : '#e0e0e0'));
 
-                    setSelectedValue(selected)
+                    setSelectedValue(ordinalScale?ordinalScale[selected]:selected)
                  
                     updateChart(variable,selected);
 
                 };
-                draw(min);
+                draw(defaultValue);
         },
         []
     );

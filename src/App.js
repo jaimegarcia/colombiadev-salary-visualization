@@ -1,62 +1,43 @@
 import React,{useState,useEffect} from 'react';
 import Slider from './components/slider';
-import Container from '@material-ui/core/Container';
+import {Container,Grid} from '@material-ui/core';
 import * as d3 from 'd3';
 
 import './App.css';
-import salaryFile from './data/salaries.csv'
+import salaryFile from './dataprocess/data/salaries-proccesed.csv'
 //let salaryData=null;
 
 
 const maxSalary=1000000000
-
-
+const englishLevels=['ninguno','básico (puede leer documentación y código en inglés)','intermedio (puede pasar una entrevista de programación en inglés)','avanzado (puede liderar una reunion de varias personas en inglés)','nativo']
+const educationTitles=['ninguno','bachiller','técnico, tecnología, bachiller técnico','pregrado','maestria','doctorado','post-doctorado'];
 function App() {
 
   const [loading, setLoading] = useState(true);
   const [salaryMean, setSalaryMean] = useState(0);
   const [numberOfPeople, setNumberOfPeople] = useState(0);
   const [salaryData, setSalaryData] = useState(null);
+  const [filteredData, setFilteredData] = useState(null);
   const [filters, setFilters] = React.useState({
-    exchangeRate: 3000,
-    experience:0,
+    "exchangeRate": 3000,
+    "experience":0,
+    "english-level":1,
+    "max-title":1
   });
   const processData=()=>{
-    d3.csv(salaryFile)
+    d3.csv(salaryFile, (d)=> {
+      return {
+        "currency":d["currency"],
+        "min-experience": +d["min-experience"],
+        "max-experience": +d["max-experience"],
+        "english-level": +d["english-level"],
+        "max-title": +d["max-title"],
+        "income-in-currency": +d["income-in-currency"] 
+      };
+    })
     .then((csv)=>{
-      csv.map(d=>{
-        d["income-in-currency"]=Number(d["income-in-currency"].replace(/[^0-9.-]+/g,""))
-        switch(d["experience"]) {
-          case "menos de 1 año":
-            d['min-experience']=0;
-            d['max-experience']=0;
-            break;
-          case "1+ año":
-            d['min-experience']=1;
-            d['max-experience']=1;
-            break;
-          case "2+ años":
-            d['min-experience']=2;
-            d['max-experience']=2;
-            break;
-          case "3 - 5 años":
-            d['min-experience']=3;
-            d['max-experience']=4;
-            break;
-          case "5 - 10 años":
-            d['min-experience']=5;
-            d['max-experience']=9;
-            break; 
-          case "10 - 15 años":
-            d['min-experience']=10;
-            d['max-experience']=14;
-            break;      
-          default:
-            d['min-experience']=15;
-            d['max-experience']=20;
-        }
 
-        ;return d;})
+      //console.log("csv",csv[0])
       setSalaryData(csv);
       setLoading(false);
 
@@ -90,10 +71,15 @@ function App() {
             return d;
           })
 
-        newSalaryData=newSalaryData.filter(d=>d["income-cop"]<=maxSalary)
+        newSalaryData=newSalaryData.filter(
+          d=>(d["income-cop"]<=maxSalary &&
+          (filters.experience>=d["min-experience"] && filters.experience<=d["max-experience"]) &&
+          (filters['english-level']===d["english-level"]) &&
+          (filters['max-title']===d["max-title"])
+          )
+        )
 
-        newSalaryData=newSalaryData.filter(d=>(filters.experience>=d["min-experience"] && filters.experience<=d["max-experience"]));
-
+        setFilteredData(newSalaryData)
         setSalaryMean(d3.mean(newSalaryData, d => d["income-cop"]))
         setNumberOfPeople(newSalaryData.length);
       }
@@ -107,12 +93,28 @@ function App() {
 
       {!loading && 
       <Container>
-        <h4>¿Qué tasa de conversión de dólar deseas utilizar?</h4>
-        <Slider variable="exchangeRate" updateChart={updateChart} min={3000} max={4000} step={10} />
-        <h4>¿Cuántos años de experiencia tienes?</h4>
-        <Slider variable="experience" updateChart={updateChart}  min={0} max={15} step={1} />
-        <h4>Hay {numberOfPeople} personas de la comunidad con un perfil parecido al tuyo y ganan en promedio</h4>
-        el equivalente a {d3.format("($,.0f")(salaryMean)} pesos al año
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
+          <b>¿Qué tasa de conversión de dólar deseas utilizar?</b>
+          <Slider variable="exchangeRate" updateChart={updateChart} min={3000} defaultValue={3730} max={4000} step={10} />
+          <b>¿Cuántos años de experiencia tienes?</b>
+          <Slider variable="experience" updateChart={updateChart}  min={0} defaultValue={5} max={15} step={1} />
+          <b>¿Cuál es tu nivel de ingles?</b>
+          <Slider variable="english-level" updateChart={updateChart}  min={0} defaultValue={2} max={4} step={1} ordinalScale={englishLevels} />
+          <b>¿Cuál es tu máximo nivel de formación?</b>
+          <Slider variable="max-title" updateChart={updateChart}  min={0} defaultValue={3} max={6} step={1} ordinalScale={educationTitles} />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <h2>
+            <span>Hay {numberOfPeople} personas de la comunidad con un perfil parecido al tuyo</span>
+            {numberOfPeople>0 && <span> y ganan en promedio al año</span>}
+          </h2>
+          <h2>
+          {numberOfPeople>0 && <span>el equivalente a <h1>{d3.format("($,.0f")(salaryMean)} pesos</h1></span>}
+          </h2>
+          </Grid>
+        </Grid>
       </Container>
        
       }
