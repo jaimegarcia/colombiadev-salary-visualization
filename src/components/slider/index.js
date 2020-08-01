@@ -92,11 +92,11 @@ const Slider = props => {
 
                 svg.append('g').call(yAxis);
                 svg.append('g').call(slider);
-
+                
                 const draw = selected => {
                     barsEnter
                         .merge(bars)
-                        .attr('fill', d => (d.key === selected ? '#bad80a' : '#e0e0e0'));
+                        .attr('fill', d => (d.key === selected ? '#2196F3' : '#e0e0e0'));
 
                     setSelectedValue(ordinalScale?ordinalScale[selected]:selected)
                  
@@ -110,7 +110,7 @@ const Slider = props => {
 
     return (
         <React.Fragment>
-        <p>{selectedValue}</p>
+        <p>{variable==="exchangeRate"?d3.format("($,.0f")(selectedValue):selectedValue}</p>
         <div id="slider-new-york-times" ref={ref}></div>
 
         </React.Fragment>
