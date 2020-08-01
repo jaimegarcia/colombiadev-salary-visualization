@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "47005815cf4efbe1c931594615999d71",
+    "revision": "9893204b6902127ad2c9e92fe08703cf",
     "url": "/colombiadev-salary-visualization/index.html"
   },
   {
-    "revision": "12f84a56aa0ca71d0c44",
+    "revision": "8188504e16081fb5394b",
     "url": "/colombiadev-salary-visualization/static/css/main.24a53cfa.chunk.css"
   },
   {
-    "revision": "1aa52c0659d5b501d5e2",
-    "url": "/colombiadev-salary-visualization/static/js/2.b3d4a322.chunk.js"
+    "revision": "03a85e7470265b1b9f46",
+    "url": "/colombiadev-salary-visualization/static/js/2.463a97d1.chunk.js"
   },
   {
     "revision": "0749163b59fbee32225059cb60c18af6",
-    "url": "/colombiadev-salary-visualization/static/js/2.b3d4a322.chunk.js.LICENSE.txt"
+    "url": "/colombiadev-salary-visualization/static/js/2.463a97d1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "12f84a56aa0ca71d0c44",
-    "url": "/colombiadev-salary-visualization/static/js/main.dcd7221a.chunk.js"
+    "revision": "8188504e16081fb5394b",
+    "url": "/colombiadev-salary-visualization/static/js/main.e03d5d8c.chunk.js"
   },
   {
     "revision": "45dac2183468bfbb04c1",
