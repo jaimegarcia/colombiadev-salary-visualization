@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import Slider from './components/slider';
-import {Container,Grid} from '@material-ui/core';
+import {Container,Grid,AppBar,Toolbar,Typography} from '@material-ui/core';
 import * as d3 from 'd3';
 
 import './App.css';
@@ -90,9 +90,16 @@ function App() {
 
   return (
     <div className="App">
-
+    <AppBar position="static">
+      <Toolbar>
+        <Typography className="title" variant="h6">
+          Visualización de Salarios de Desarrolladores Colombianos 2020. Fuente: Colombia Dev Community
+        </Typography>
+      </Toolbar>
+    </AppBar>
       {!loading && 
       <Container>
+        <br/>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
           <b>¿Qué tasa de conversión de dólar deseas utilizar?</b>
@@ -105,7 +112,7 @@ function App() {
           <Slider variable="max-title" updateChart={updateChart}  min={0} defaultValue={3} max={6} step={1} ordinalScale={educationTitles} />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <br/>
           <h2>
             <span>Hay {numberOfPeople} personas de la comunidad con un perfil parecido al tuyo</span>
             {numberOfPeople>0 && <span> y ganan en promedio al año</span>}
